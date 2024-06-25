@@ -1,4 +1,3 @@
 Amount: 500, Category: Tution
-Amount: 444, Category: Tution
 Amount: 700, Category: Tution
 Amount: 100, Category: Service

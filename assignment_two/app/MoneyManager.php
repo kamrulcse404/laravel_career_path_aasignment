@@ -53,6 +53,11 @@ class MoneyManager
         $this->source = $source;
         $this->amount = $amount;
 
+        $saving = $this->viewSavings();
+        if ($saving < $this->amount) {
+            return "Something wrong or you don't have enough savings to expense!!";
+        }
+
         $filename = __DIR__ . "/expense.txt";
         $file = fopen($filename, 'a+');
         $this->source = ucfirst($this->source);
@@ -135,6 +140,9 @@ class MoneyManager
 
     public function viewSavings()
     {
+        $totalIncome = 0;
+        $totalExpense = 0;
+
         $filename = __DIR__ . '/income.txt'; 
         if (file_exists($filename)) 
         {
@@ -149,18 +157,42 @@ class MoneyManager
                     $amounts = $matches[1];
                 }
                 // print_r($amounts);
-                $totalSavings = 0;
+                
                 for ($i=0; $i < count($amounts); $i++) { 
-                    $totalSavings += $amounts[$i];
+                    $totalIncome += $amounts[$i];
                 }
-
-                return $totalSavings;
 
             }else
             {
                 return "There is a problem in opening file";
             }
         }
+
+        $expenseFilename = __DIR__ . '/expense.txt'; 
+        if (file_exists($expenseFilename)) 
+        {
+            $expenseFile = fopen( $expenseFilename, 'r');
+            if ($expenseFile) 
+            {
+                $contents = file_get_contents($expenseFilename);
+                $expenseAmounts = [];
+
+                $pattern = '/Amount: ([^,]+)/';
+                if (preg_match_all($pattern, $contents, $matches)) {
+                    $expenseAmounts = $matches[1];
+                }
+                // print_r($amounts);
+                for ($i=0; $i < count($expenseAmounts); $i++) { 
+                    $totalExpense += $expenseAmounts[$i];
+                }
+
+            }else
+            {
+                return "There is a problem in opening file";
+            }
+        }
+
+        return $totalIncome - $totalExpense;
     }
 
     public function viewCategories(): string
