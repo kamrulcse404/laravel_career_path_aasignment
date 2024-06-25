@@ -55,7 +55,7 @@ class MoneyManager
 
         $saving = $this->viewSavings();
         if ($saving < $this->amount) {
-            return "Something wrong or you don't have enough savings to expense!!";
+            return "You don't have enough savings to expense!!";
         }
 
         $filename = __DIR__ . "/expense.txt";
