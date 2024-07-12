@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Super Admin",
+        "email": "admin@gmail.com",
+        "password": "$2y$10$5j79M38io7dBEcAOdr4D0.JOGNmUvE5GV6dnkb.4r9JPmIWL\/IcNW"
+    },
+    {
+        "id": 2,
+        "name": "Kamrul Hasan",
+        "email": "kamrul.h01960@gmail.com",
+        "password": "$2y$10$IaAp\/dKUr2nvQ1\/lK75kOeV7oc9AfTJ\/Azjzv7iPKrshjIz8WBKjy"
+    }
+]
