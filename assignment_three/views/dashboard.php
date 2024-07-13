@@ -30,8 +30,7 @@ require_once(__DIR__ . '/partials/header.php');
 
         <div class="relative max-w-7xl mx-auto">
             <div class="flex justify-end">
-                <!-- <span class="block text-gray-600 font-mono border border-gray-400 rounded-xl px-2 py-1">Your feedback form link: <strong>http://localhost/feedback/sYu24jl/<?php echo $user_id ?></strong></span> -->
-                <span class="block text-gray-600 font-mono border border-gray-400 rounded-xl px-2 py-1">Your feedback form link: <strong>http://localhost:8000/feedback/sYu24jl/<?php echo $user_id ?></strong></span>
+                <span class="block text-gray-600 font-mono border border-gray-400 rounded-xl px-2 py-1">Your feedback form link: <strong>http://localhost:8000/views/feedback.php?user=<?= $user_id?></strong></span>
             </div>
             <h1 class="text-xl text-indigo-800 text-bold my-10">Received feedback </h1>
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
